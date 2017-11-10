@@ -1,0 +1,53 @@
+<h2>Dashboard</h2>
+
+<div>
+    <button class="btn btn-success" ng-click="vm.fetchEmployee()">GetEmployee</button>
+    <button class="btn btn-success" ng-click="vm.fetchSalary()">GetSalary</button>
+    <button class="btn btn-success" ng-click="vm.fetchEmployeeSalary()">GetEmployeeSalary</button>
+
+    <div style="padding:50px;" data-ng-show="vm.isEmployeeData==true">
+        <table class="table">
+            <tr>
+                <th>First Name </th>
+                <th>Last Name</th>
+                <th>Employee Id</th>
+            </tr>
+            <tr data-ng-repeat="obj in vm.employee_data">
+                <td>{{obj.first_name}}</td>
+                <td>{{obj.last_name}}</td>
+                <td>{{obj._id}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-default" data-ng-click="vm.isEmployeeData=false">Close</button>
+    </div>
+
+    <div style="padding:50px;" data-ng-show="vm.isEmployeeSalaryData">
+        <table class="table">
+            <tr>
+                <th>Employee Id</th>
+                <th>Salary</th>
+            </tr>
+            <tr data-ng-repeat="obj in vm.salary_data">
+                <td>{{obj.code}}</td>
+                <td>{{obj.salary}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-default" data-ng-click="vm.isEmployeeSalaryData=false">Close</button>
+    </div>
+    <div style="padding:50px;" data-ng-show="vm.isEmployeeSalaryBothData">
+        <table class="table">
+            <tr>
+                <th>Employee Id</th>
+                <th>Full Name</th>
+                <th>Salary</th>
+            </tr>
+            <tr data-ng-repeat="obj in vm.employee_salary_data">
+
+                <td>{{obj.id}}</td>
+                <td>{{obj.fullname}}</td>
+                <td>{{obj.salary}}</td>
+            </tr>
+        </table>
+        <button class="btn btn-default" data-ng-click="vm.isEmployeeSalaryBothData=false">Close</button>
+    </div>
+</div>
